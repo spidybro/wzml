@@ -49,7 +49,16 @@ List of Variables used by the Bot
 
 ### 4. [***Deploy***](https://github.com/weebzone/WZML/wiki/Deployment)
 Steps to Deploy the Bot to Run for Yourself
+ ####################################################
+ 
+ 
+ chmod +x ./leechstart.sh                    
 
+ sudo ./leechstart.sh  
+ 
+ 
+ 
+ ####################################################
 ---
 
 ## License ⚠️
