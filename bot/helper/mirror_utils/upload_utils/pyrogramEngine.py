@@ -99,7 +99,7 @@ class TgUploader:
                 osrename(up_path, new_path)
                 up_path = new_path
         else:
-            cap_mono = f"<{CAPTION_FONT}>{file_}</{CAPTION_FONT}>"
+            cap_mono = f"<{CAPTION_FONT}>[@YourDemandZone]{file_}</{CAPTION_FONT}>"
             cap = f"\n\n{CAPTION_X}\n\n"
         # if CUSTOM_FILENAME is not None and prefix == '':
         #     cap_mono = f"<{CAPTION_FONT}>{CUSTOM_FILENAME} {file_}</{CAPTION_FONT}>"
