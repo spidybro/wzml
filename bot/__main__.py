@@ -243,6 +243,10 @@ help_string_telegraph_user = f'''
 <br><br>
 • <b>/{BotCommands.PreNameCommand}</b>: Set Prename to leech files
 <br><br>
+• <b>/{BotCommands.SufNameCommand}</b>: Set Suffix to leech files
+<br><br>
+• <b>/{BotCommands.RemnameCommand}</b>: Remove Specific Words from filename
+<br><br>
 • <b>/{BotCommands.CaptionCommand}</b>: Set Caption for leech files
 <br><br>
 • <b>/{BotCommands.UserLogCommand}</b>: Add Dump Channel for leech files. make sure bot should an admin in dump channel.
@@ -335,7 +339,7 @@ if SET_BOT_COMMANDS:
         (f'{BotCommands.WatchCommand}','Mirror yt-dlp supported link'),
         (f'{BotCommands.ZipWatchCommand}','Mirror yt-dlp supported link as zip'),
         (f'{BotCommands.CloneCommand}','Copy file/folder to Drive'),
-        (f'{BotCommands.LeechCommand}','📨 [Reply] Leech any Torrent/ Magnet/ Direct Link '),
+        (f'{BotCommands.LeechCommand}','Leech'),
         (f'{BotCommands.ZipLeechCommand}','Leech and upload as zip'),
         (f'{BotCommands.UnzipLeechCommand}','Leech and extract files'),
         (f'{BotCommands.QbLeechCommand}','Leech torrent using qBittorrent'),
@@ -344,7 +348,9 @@ if SET_BOT_COMMANDS:
         (f'{BotCommands.LeechWatchCommand}','Leech yt-dlp supported link'),
         (f'{BotCommands.LeechZipWatchCommand}','Leech yt-dlp supported link as zip'),
         (f'{BotCommands.PreNameCommand}','Set Prename for Leech Files'),
+        (f'{BotCommands.SufNameCommand}','Set Suffix for Leech Files'),
         (f'{BotCommands.CaptionCommand}','Set Caption for Leech Files'),
+        (f'{BotCommands.RemnameCommand}','Remove Specific words from filename'),
         (f'{BotCommands.UserLogCommand}','Set Dump Channel for Leech Files'),
         (f'{BotCommands.ScrapeCommand}','Scrape Links from Website'),
         (f'{BotCommands.CountCommand}','Count file/folder of Drive'),
