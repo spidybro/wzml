@@ -1,7 +1,9 @@
 import re
-from os import environ
+from PIL import Image
+from os import environ, remove
 from logging import getLogger, FileHandler, StreamHandler, INFO, basicConfig, error as log_error, info as log_info, warning as log_warning
 from socket import setdefaulttimeout
+from urllib.request import urlretrieve
 from faulthandler import enable as faulthandler_enable
 from telegram.ext import Updater as tgUpdater
 from qbittorrentapi import Client as qbClient
@@ -41,6 +43,7 @@ CAP_DICT = {}
 LEECH_DICT = {}
 REM_DICT = {}
 TIME_GAP_STORE = {}
+CFONT_DICT = {}
 
 load_dotenv('config.env', override=True)
 
@@ -140,6 +143,16 @@ except:
     log_error("One or more env variables missing! Exiting now")
     exit(1)
 
+try:
+    TGH_THUMB = getConfig('TGH_THUMB')
+    if len(TGH_THUMB) == 0:
+        raise KeyError
+    photo_dir = 'downloads/' + TGH_THUMB.split('/')[-1]
+    urlretrieve(TGH_THUMB, photo_dir)
+    Image.open(photo_dir).convert("RGB").save('Thumbnails/weeb.jpg', "JPEG")
+    remove(photo_dir)
+except:
+    TGH_THUMB = ''
 
 try:
     aid = getConfig('AUTHORIZED_CHATS')
@@ -205,7 +218,14 @@ except KeyError as e:
     AUTO_DELETE_UPLOAD_MESSAGE_DURATION = -1
     LOGGER.warning("AUTO_DELETE_UPLOAD_MESSAGE_DURATION var missing!")
     pass
-  
+
+try:
+    TIME_GAP = int(getConfig('TIME_GAP'))
+except KeyError as e:
+    TIME_GAP = -1
+    pass
+
+
 LOGGER.info("Generating SESSION_STRING")
 app = Client(name='pyrogram', api_id=int(TELEGRAM_API), api_hash=TELEGRAM_HASH, bot_token=BOT_TOKEN, parse_mode=enums.ParseMode.HTML, no_updates=True)
 
@@ -393,13 +413,6 @@ try:
     ZIP_UNZIP_LIMIT = float(ZIP_UNZIP_LIMIT)
 except:
     ZIP_UNZIP_LIMIT = None
-try:
-    TIME_GAP = getConfig('TIME_GAP')
-    if len(TIME_GAP) == 0:
-        raise KeyError
-    TIME_GAP = int(TIME_GAP)
-except:
-    TIME_GAP = 600    
 try:
     PAID_SERVICE = getConfig('PAID_SERVICE')
     PAID_SERVICE = PAID_SERVICE.lower() == 'true'
