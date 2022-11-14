@@ -194,7 +194,7 @@ def log(update, context):
 
 
 help_string = '''
-<b><a href='https://t.me/Mr_SpidyBot'>Any Query</a></b> - The Ultimate Telegram MIrror-Leech Bot to Upload Your File & Link in Google Drive & Telegram
+<b><a href='https://github.com/weebzone/WZML'>WeebZone</a></b> - The Ultimate Telegram MIrror-Leech Bot to Upload Your File & Link in Google Drive & Telegram
 Choose a help category:
 '''
 
@@ -284,12 +284,11 @@ help_string_telegraph_user = f'''
 
 try:
     help_user = telegraph.create_page(
-        title='{TITLE_NAME} HELP',
+        title=f'{TITLE_NAME} HELP',
         content=help_string_telegraph_user,
     )["path"]
 except Exception as err:
-    LOGGER.warning(f"{err}")
-    pass
+    LOGGER.warning(f"Telegraph Error: {err}")
 
 
 help_string_telegraph_admin = f'''
@@ -320,12 +319,11 @@ help_string_telegraph_admin = f'''
 
 try:
     help_admin = telegraph.create_page(
-        title='{TITLE_NAME} HELP',
+        title=f'{TITLE_NAME} HELP',
         content=help_string_telegraph_admin,
     )["path"]
 except Exception as err:
-    LOGGER.warning(f"{err}")
-    pass
+    LOGGER.warning(f"Telegraph Error: {err}")
 
 def bot_help(update, context):
     button = ButtonMaker()
