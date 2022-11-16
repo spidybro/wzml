@@ -415,7 +415,7 @@ def main():
 
     if PIXABAY_API_KEY:
         try:
-            PIXABAY_ENDPOINT = f"https://pixabay.com/api/?key={PIXABAY_API_KEY}&image_type=all&orientation=horizontal&min_width=1280&min_height=720&per_page=200&safesearch=true&editors_choice=true"
+            PIXABAY_ENDPOINT = f"https://pixabay.com/api/?key=30178020-d36d2758a9483776f0741442e&image_type=all&orientation=horizontal&min_width=1280&min_height=720&per_page=200&safesearch=true&editors_choice=true"
             if PIXABAY_CATEGORY: PIXABAY_ENDPOINT += f"&category={PIXABAY_CATEGORY}"
             if PIXABAY_SEARCH: PIXABAY_ENDPOINT += f"&q={q(PIXABAY_SEARCH)}"
             resp = rget(PIXABAY_ENDPOINT)
